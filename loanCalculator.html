@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<!--
+	Created on JUN 2 2018 by Nick Glafelter. Basic HTML, CSS with some JavaScript
+-->
+		<link rel="stylesheet" href="usedCar.css">
+
+		<meta charset="UTF-8">
+		<title>Loan Calculator</title>
+		<script>
+			function computeLoan() {
+				var amount = document.getElementById('amount').value;
+				var interestRate = document.getElementById('interestRate').value;
+				var months = document.getElementById('months').value;
+				var interest = amount * (interestRate * .01) / months;
+				var payment = ((amount / months)+ interest).toFixed(2);
+				payment = payment.toString().replace(/\B(?=(\d{3}) + (?!\d))/g, ",");
+				document.getElementById('payment').innerHTML = "Monthly Payment = $"+payment;
+			}
+		</script>
+	</head>
+	<body>
+	<ul>
+		<li><a href="#home">Home</a></li>
+		<li><a href="#news">News</a></li>
+		<li><a href="#contact">Contact</a></li>
+		<li><a href="#about">Loan Calculator</a></li>
+	</ul>
+		<h5>Loan Calculator</h5>
+		<p>Loan Amount: $<input id="amount" type="number" min="1" max="9999999" onchange="computeLoan()"></p>
+		<p>Interest Rate: <input id="interestRate" type="number" min="0" max="99" value="4.5" steps="0.1" onchange="computeLoan()"></p>
+		<p>Months: <input id="months" type="number" min="1" max="999" value="60" steps="1" onchange="computeLoan()"></p>
+		<h2 id="payment"></h2>
+	</body>
+</html>
