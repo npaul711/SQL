@@ -1,3 +1,3 @@
 # SQL
 
-Small collection of SQL work
+Small collection of SQL works. There are some queries and creation of tables
